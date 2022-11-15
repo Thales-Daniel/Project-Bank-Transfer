@@ -8,19 +8,27 @@ datasource db {
 }
 
 model Users {
-  id         String  @id @default(uuid())
-  username   String  @unique
-  password   Decimal
-  account_id Decimal
+  id        String   @id @default(uuid())
+  username  String   @unique
+  password  Decimal
+  accountId String
+  accountFK Accounts @relation(fields: [accountId], references: [id])
 }
 
 model Accounts {
-  id      String  @id @default(uuid())
-  balance Decimal
+  id               String         @id @default(uuid())
+  balance          Decimal
+  Users            Users[]
+  debited_account  Transactions[] @relation(name: "debitedAccountId")
+  credited_account Transactions[] @relation(name: "creditedAccountId")
 }
 
 model Transactions {
-  id         String   @id @default(uuid())
-  value      Decimal
-  created_at DateTime @default(now())
+  id                String   @id @default(uuid())
+  value             Decimal
+  debitedAccountId  String
+  debited_account   Accounts @relation(name: "debitedAccountId", fields: [debitedAccountId], references: [id])
+  creditedAccountId String
+  credited_account  Accounts @relation(name: "creditedAccountId", fields: [creditedAccountId], references: [id])
+  createdAt         DateTime @default(now())
 }
