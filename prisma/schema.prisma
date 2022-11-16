@@ -10,9 +10,11 @@ datasource db {
 model Users {
   id        String   @id @default(uuid())
   username  String   @unique
-  password  Decimal
+  password  String
   accountId String
   accountFK Accounts @relation(fields: [accountId], references: [id])
+
+  @@map("users")
 }
 
 model Accounts {
@@ -21,6 +23,8 @@ model Accounts {
   Users            Users[]
   debited_account  Transactions[] @relation(name: "debitedAccountId")
   credited_account Transactions[] @relation(name: "creditedAccountId")
+
+  @@map("accounts")
 }
 
 model Transactions {
@@ -31,4 +35,6 @@ model Transactions {
   creditedAccountId String
   credited_account  Accounts @relation(name: "creditedAccountId", fields: [creditedAccountId], references: [id])
   createdAt         DateTime @default(now())
+
+  @@map("transactions")
 }
