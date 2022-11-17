@@ -3,6 +3,7 @@ import cors from "cors"
 import errorHandler from "../middlewares/errorHandler"
 import loginRouter from "../routers/LoginUserRouter"
 import userRouter from "../routers/CreateUserRouter"
+import balanceRouter from "../routers/BalanceRouter"
 
 const app = express()
 const PORT = process.env.PORT
@@ -12,6 +13,7 @@ app.use(cors())
 
 app.use(userRouter)
 app.use(loginRouter)
+app.use(balanceRouter)
 
 app.use(errorHandler)
 

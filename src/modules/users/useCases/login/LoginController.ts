@@ -10,9 +10,12 @@ export class LoginUserController {
         username,
         password,
       })
-      return res
-        .status(200)
-        .json({ message: "Login successfully", token: result.token })
+      return res.status(200).json({
+        message: "Login successfully",
+        accountId: result.accountId,
+        id: result.id,
+        token: result.token,
+      })
     } catch (err) {
       next(err)
     }

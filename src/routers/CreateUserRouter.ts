@@ -1,6 +1,6 @@
 import { Router } from "express"
 import { CreateUserController } from "../modules/users/useCases/createUser/CreateUserController"
-import { validateUser } from "../middlewares/validatorUser"
+import { validateUser } from "../middlewares/validateUser"
 
 const userRouter = Router()
 

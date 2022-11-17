@@ -27,6 +27,8 @@ export class LoginUser {
     })
 
     return {
+      accountId: findUser.accountId,
+      id: findUser.id,
       username,
       token,
     }
