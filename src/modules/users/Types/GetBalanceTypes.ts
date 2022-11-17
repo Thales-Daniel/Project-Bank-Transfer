@@ -1,5 +1,5 @@
 interface GetBalanceTypes {
-  id: string
+  paransId: string
   accountId: string
 }
 
