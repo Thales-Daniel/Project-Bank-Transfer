@@ -2,10 +2,10 @@ import { Router } from "express"
 import { CreateUserController } from "../modules/users/useCases/createUser/CreateUserController"
 import { validateUser } from "../middlewares/validatorUser"
 
+const userRouter = Router()
+
 const createUserController = new CreateUserController().handle
 
-const router = Router()
+userRouter.post("/user/register", validateUser, createUserController)
 
-router.post("/register", validateUser, createUserController)
-
-export default createUserController
+export default userRouter

@@ -1,10 +1,15 @@
+import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
+
 import prisma from "../../../../database/client"
 import CreateUserTypes from "../../Types/CreateUserType"
 import { ErrorApp } from "../../../../middlewares/ErrorApp"
-import bcrypt from "bcrypt"
+import { fileReader } from "../../../../helpers/funcs/fileReader"
 
-export class CreateUser {
+export class LoginUser {
   async execute({ username, password }: CreateUserTypes) {
+    const secret = fileReader("jwt.evaluation.key")
+
     const findUser = await prisma.users.findFirst({
       where: {
         username,
@@ -17,10 +22,13 @@ export class CreateUser {
 
     if (!hashPassword) throw new ErrorApp("Wrong Password", 400)
 
+    const token = jwt.sign({ data: findUser }, secret, {
+      expiresIn: "1d",
+    })
+
     return {
-      id: findUser.id,
       username,
-      accountId: findUser.accountId,
+      token,
     }
   }
 }

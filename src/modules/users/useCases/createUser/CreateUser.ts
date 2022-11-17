@@ -1,10 +1,12 @@
+import bcrypt from "bcrypt"
+
 import prisma from "../../../../database/client"
 import CreateUserTypes from "../../Types/CreateUserType"
 import { ErrorApp } from "../../../../middlewares/ErrorApp"
-import bcrypt from "bcrypt"
 
 export class CreateUser {
   async execute({ username, password }: CreateUserTypes) {
+    console.log("entrou no service")
     const userAlreadyExists = await prisma.users.findFirst({
       where: {
         username,
