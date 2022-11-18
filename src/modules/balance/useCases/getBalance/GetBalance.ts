@@ -1,5 +1,3 @@
-import bcrypt from "bcrypt"
-
 import prisma from "../../../../database/client"
 import { ErrorApp } from "../../../../middlewares/ErrorApp"
 import GetBalanceTypes from "../../../../helpers/Types/GetBalanceTypes"

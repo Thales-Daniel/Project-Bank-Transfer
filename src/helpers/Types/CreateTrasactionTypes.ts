@@ -5,4 +5,10 @@ interface CreateTrasactionTypes {
   value: number
 }
 
+export interface GetTransactionsTypes {
+  paramId: string
+  accountId: string
+  type?: string
+}
+
 export default CreateTrasactionTypes
