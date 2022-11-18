@@ -1,0 +1,28 @@
+{
+  "name": "node-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install:api": "cd ./backend && yarn install",
+    "install:web": "cd ./frontend && yarn install",
+    "build:All": "yarn install && concurrently \"yarn run install:api\" \"yarn run install:web\"",
+    "start:api": "cd ./front-end && npm start",
+    "start:web": "cd ./back-end && npm start",
+    "start": "concurrently \"npm run start:api\" \"npm run start:web\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thales-Daniel/ng-cash.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thales-Daniel/ng-cash/issues"
+  },
+  "homepage": "https://github.com/Thales-Daniel/ng-cash#readme",
+  "dependencies": {
+    "concurrently": "^7.5.0"
+  }
+}
