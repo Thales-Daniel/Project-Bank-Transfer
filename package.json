@@ -7,9 +7,9 @@
     "install:api": "cd ./backend && yarn install",
     "install:web": "cd ./frontend && yarn install",
     "build:All": "yarn install && concurrently \"yarn run install:api\" \"yarn run install:web\"",
-    "start:api": "cd ./front-end && npm start",
-    "start:web": "cd ./back-end && npm start",
-    "start": "concurrently \"npm run start:api\" \"npm run start:web\""
+    "start:web": "cd ./frontend && yarn dev",
+    "start:api": "cd ./backend && yarn dev",
+    "start": "concurrently \"yarn run start:api\" \"yarn run start:web\""
   },
   "repository": {
     "type": "git",
