@@ -22,7 +22,6 @@ export const validateJwt = async (
     if (!token) throw new ErrorApp("Token not Found", 400)
 
     const { data } = verify(token, secret) as JwtPayload
-    console.log(data)
     req.username = data.username.toString()
     req.accountId = data.accountId.toString()
 

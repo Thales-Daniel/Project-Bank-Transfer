@@ -7,6 +7,6 @@ const balanceRouter = Router()
 
 const getBalanceController = new GetBalanceController().handle
 
-balanceRouter.get("/:paransId", validateJwt, getBalanceController)
+balanceRouter.get("/user/balance/:paransId", validateJwt, getBalanceController)
 
 export default balanceRouter
