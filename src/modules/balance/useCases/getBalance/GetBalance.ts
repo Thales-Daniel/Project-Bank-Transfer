@@ -2,7 +2,7 @@ import bcrypt from "bcrypt"
 
 import prisma from "../../../../database/client"
 import { ErrorApp } from "../../../../middlewares/ErrorApp"
-import GetBalanceTypes from "../../Types/GetBalanceTypes"
+import GetBalanceTypes from "../../../../helpers/Types/GetBalanceTypes"
 
 export class GetBalance {
   async execute({ paransId, accountId }: GetBalanceTypes) {

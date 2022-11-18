@@ -2,7 +2,7 @@ import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 
 import prisma from "../../../../database/client"
-import CreateUserTypes from "../../Types/CreateUserType"
+import CreateUserTypes from "../../../../helpers/Types/CreateUserType"
 import { ErrorApp } from "../../../../middlewares/ErrorApp"
 import { fileReader } from "../../../../helpers/funcs/fileReader"
 

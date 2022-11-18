@@ -1,6 +1,6 @@
 import { Router } from "express"
 
-import { CreateTransactionController } from "../modules/users/useCases/transactions/CreateTransactionController"
+import { CreateTransactionController } from "../modules/transactions/useCases/createTransaction/CreateTransactionController"
 import { validateJwt } from "../middlewares/validateJwt"
 
 const transactionRouter = Router()

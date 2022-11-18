@@ -2,7 +2,7 @@ import bcrypt from "bcrypt"
 
 import prisma from "../../../../database/client"
 import { ErrorApp } from "../../../../middlewares/ErrorApp"
-import CreateTrasactionTypes from "../../Types/CreateTrasactionTypes"
+import CreateTrasactionTypes from "../../../../helpers/Types/CreateTrasactionTypes"
 
 export class CreateTransaction {
   async execute({ myId, username, myAccountId, value }: CreateTrasactionTypes) {

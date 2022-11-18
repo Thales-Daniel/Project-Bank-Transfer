@@ -1,6 +1,6 @@
 import { Router } from "express"
 
-import { GetBalanceController } from "../modules/users/useCases/balance/GetBalanceController"
+import { GetBalanceController } from "../modules/balance/GetBalanceController"
 import { validateJwt } from "../middlewares/validateJwt"
 
 const balanceRouter = Router()

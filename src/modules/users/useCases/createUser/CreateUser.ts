@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt"
 
 import prisma from "../../../../database/client"
-import CreateUserTypes from "../../Types/CreateUserType"
+import CreateUserTypes from "../../../../helpers/Types/CreateUserType"
 import { ErrorApp } from "../../../../middlewares/ErrorApp"
 
 export class CreateUser {
