@@ -3,10 +3,9 @@ import { Navigate } from "react-router-dom"
 import { BiUser } from "react-icons/bi"
 import { GiPadlockOpen, GiPadlock } from "react-icons/gi"
 
-import login from "../../services/postLogin"
-import setLocalStorage from "../../shared/functions/setLocalStorage"
 import { UserType } from "../../shared/types/contextTypes"
-
+import register from "../../services/postRegister"
+import setLocalStorage from "../../shared/functions/setLocalStorage"
 import {
   BoxContainer,
   FildTitle,
@@ -20,16 +19,18 @@ import {
   InputLogin,
 } from "./style"
 
-function BoxLogin() {
+function BoxRegister() {
   const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
   const [user, setUser] = useState({} as UserType)
   const [err, setErr] = useState("")
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
     try {
-      const result = await login(username, password)
+      const result = await register(username, password)
       setLocalStorage("user", result)
       if (result) {
         setUser(result)
@@ -43,7 +44,7 @@ function BoxLogin() {
 
   return (
     <BoxContainer>
-      <BoxContainerTitle>Login</BoxContainerTitle>
+      <BoxContainerTitle>Register</BoxContainerTitle>
       <Label htmlFor="login">
         <FildTitle>Login</FildTitle>
         <InputLogin
@@ -74,12 +75,29 @@ function BoxLogin() {
           {!showPassword ? <GiPadlock /> : <GiPadlockOpen />}
         </Icons>
       </Label>
-      <LoginButton onClick={() => handleLogin()}>Login</LoginButton>
+      <Label htmlFor="confirmPassword">
+        <FildTitle>Confirm Password</FildTitle>
+        <InputPassword
+          type={showPassword ? "text" : "password"}
+          id="confirmPassword"
+          value={confirmPassword}
+          onChange={(event) => setConfirmPassword(event.target.value)}
+          color={password !== confirmPassword ? "red" : "gray-border"}
+        />
+        <Icons
+          as="button"
+          onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+          theme="pointer"
+        >
+          {!showConfirmPassword ? <GiPadlock /> : <GiPadlockOpen />}
+        </Icons>
+      </Label>
+      <LoginButton onClick={() => handleRegister()}>Create Account</LoginButton>
       <SignUpContainer>
-        have an account? <LinkSingUp to="/register">Sign Up</LinkSingUp>
+        already have an account? <LinkSingUp to="/">Make Login</LinkSingUp>
       </SignUpContainer>
     </BoxContainer>
   )
 }
 
-export default BoxLogin
+export default BoxRegister
