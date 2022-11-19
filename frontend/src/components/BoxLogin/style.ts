@@ -29,7 +29,8 @@ export const FildTitle = styled.p`
 
 export const Input = styled.input`
   border-radius: 10px;
-  border: 1px solid ${colors["gray-border"]};
+  border: 1px solid;
+  border-color: ${(props) => (props.color ? colors[props.color] : "red")};
   height: 2.2rem;
   outline: none;
   padding: 2px 10px 2px 30px;
@@ -38,7 +39,7 @@ export const Input = styled.input`
 `
 
 export const Icons = styled.span`
-  bottom: 3px;
+  bottom: 4.5px;
   left: 8px;
   position: absolute;
   background: none;
@@ -52,9 +53,11 @@ export const LoginButton = styled.button`
   border-radius: 10px;
   border: none;
   color: ${colors.white};
+  cursor: pointer;
   display: flex;
   height: 2.2rem;
   justify-content: center;
+  text-decoration: none;
   width: 15rem;
 `
 export const SignUpContainer = styled.div`

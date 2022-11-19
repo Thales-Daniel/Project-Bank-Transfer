@@ -6,6 +6,7 @@ const colors: colorsType = {
   "gray-border": "#D9D9D9",
   "black-not-strong": "#343338",
   gray: "gray",
+  red: "red",
 }
 
 export default colors
