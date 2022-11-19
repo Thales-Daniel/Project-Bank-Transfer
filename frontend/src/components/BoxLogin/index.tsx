@@ -44,11 +44,11 @@ function BoxLogin() {
   return (
     <BoxContainer>
       <BoxContainerTitle>Login</BoxContainerTitle>
-      <Label htmlFor="login">
-        <FildTitle>Login</FildTitle>
+      <Label htmlFor="Username">
+        <FildTitle>Username</FildTitle>
         <InputLogin
           type="text"
-          id="login"
+          id="Username"
           value={username}
           onChange={(event) => setUsername(event.target.value)}
           color={err === "Error: User not Registred" ? "red" : "gray-border"}

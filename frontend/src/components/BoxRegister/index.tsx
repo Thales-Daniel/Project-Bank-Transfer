@@ -1,11 +1,8 @@
 import React, { useState } from "react"
-import { Navigate } from "react-router-dom"
 import { BiUser } from "react-icons/bi"
 import { GiPadlockOpen, GiPadlock } from "react-icons/gi"
 
-import { UserType } from "../../shared/types/contextTypes"
 import register from "../../services/postRegister"
-import setLocalStorage from "../../shared/functions/setLocalStorage"
 import {
   BoxContainer,
   FildTitle,
@@ -25,34 +22,31 @@ function BoxRegister() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
-  const [user, setUser] = useState({} as UserType)
   const [err, setErr] = useState("")
 
   const handleRegister = async () => {
     try {
-      const result = await register(username, password)
-      setLocalStorage("user", result)
-      if (result) {
-        setUser(result)
-      }
+      if (confirmPassword !== password)
+        throw new Error("password have be the same")
+
+      await register(username, password)
     } catch (error: any) {
       setErr(error.toString())
+      console.log(err)
     }
   }
-
-  if (user.message) return <Navigate to={`/dashboard/${user.accountId}`} />
 
   return (
     <BoxContainer>
       <BoxContainerTitle>Register</BoxContainerTitle>
-      <Label htmlFor="login">
-        <FildTitle>Login</FildTitle>
+      <Label htmlFor="Username">
+        <FildTitle>Username</FildTitle>
         <InputLogin
           type="text"
-          id="login"
+          id="Username"
           value={username}
           onChange={(event) => setUsername(event.target.value)}
-          color={err === "Error: User not Registred" ? "red" : "gray-border"}
+          color={err === "Error: User is too short" ? "red" : "gray-border"}
         />
         <Icons>
           <BiUser />
@@ -65,7 +59,12 @@ function BoxRegister() {
           id="passord"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          color={err === "Error: Wrong Password" ? "red" : "gray-border"}
+          color={
+            err ===
+            "Error: the password must contain a uppercase letter and a number"
+              ? "red"
+              : "gray-border"
+          }
         />
         <Icons
           as="button"
@@ -78,11 +77,17 @@ function BoxRegister() {
       <Label htmlFor="confirmPassword">
         <FildTitle>Confirm Password</FildTitle>
         <InputPassword
-          type={showPassword ? "text" : "password"}
+          type={showConfirmPassword ? "text" : "password"}
           id="confirmPassword"
           value={confirmPassword}
           onChange={(event) => setConfirmPassword(event.target.value)}
-          color={password !== confirmPassword ? "red" : "gray-border"}
+          color={
+            err === "Error: password have be the same" ||
+            err ===
+              "Error: the password must contain a uppercase letter and a number"
+              ? "red"
+              : "gray-border"
+          }
         />
         <Icons
           as="button"
