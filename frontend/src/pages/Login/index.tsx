@@ -1,7 +1,14 @@
 import React from "react"
 
+import BoxLogin from "../../components/BoxLogin"
+import LoginContainer from "./style"
+
 function Login() {
-  return <div>Hello World!</div>
+  return (
+    <LoginContainer>
+      <BoxLogin />
+    </LoginContainer>
+  )
 }
 
 export default Login
