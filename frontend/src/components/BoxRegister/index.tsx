@@ -9,11 +9,12 @@ import {
   Icons,
   Label,
   BoxContainerTitle,
-  LoginButton,
-  LinkSingUp,
-  SignUpContainer,
   InputPassword,
   InputLogin,
+  ErrorComponent,
+  LinkLogin,
+  GoToLogin,
+  CreateAccountButton,
 } from "./style"
 
 function BoxRegister() {
@@ -22,6 +23,7 @@ function BoxRegister() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
+  const [showError, setShowError] = useState(false)
   const [err, setErr] = useState("")
 
   const handleRegister = async () => {
@@ -32,7 +34,11 @@ function BoxRegister() {
       await register(username, password)
     } catch (error: any) {
       setErr(error.toString())
-      console.log(err)
+      setShowError(true)
+      setTimeout(() => {
+        setShowError(false)
+        setErr("")
+      }, 5000)
     }
   }
 
@@ -97,10 +103,13 @@ function BoxRegister() {
           {!showConfirmPassword ? <GiPadlock /> : <GiPadlockOpen />}
         </Icons>
       </Label>
-      <LoginButton onClick={() => handleRegister()}>Create Account</LoginButton>
-      <SignUpContainer>
-        already have an account? <LinkSingUp to="/">Make Login</LinkSingUp>
-      </SignUpContainer>
+      {showError && <ErrorComponent>{err}</ErrorComponent>}
+      <CreateAccountButton onClick={() => handleRegister()}>
+        Create Account
+      </CreateAccountButton>
+      <GoToLogin>
+        already have an account? <LinkLogin to="/">Make Login</LinkLogin>
+      </GoToLogin>
     </BoxContainer>
   )
 }

@@ -58,7 +58,7 @@ export const Icons = styled.span`
   cursor: ${(props) => (props.theme ? props.theme : "none")};
 `
 
-export const LoginButton = styled.button`
+export const CreateAccountButton = styled.button`
   align-items: center;
   background-color: ${colors["black-not-strong"]};
   border-radius: 10px;
@@ -71,13 +71,18 @@ export const LoginButton = styled.button`
   text-decoration: none;
   width: 15rem;
 `
-export const SignUpContainer = styled.div`
+export const GoToLogin = styled.div`
   font-size: small;
   color: ${colors.gray};
 `
-export const LinkSingUp = styled(Link)`
+export const LinkLogin = styled(Link)`
   background-color: none;
   text-decoration: none;
   border: none;
   color: ${colors["black-not-strong"]};
+`
+
+export const ErrorComponent = styled.p`
+  color: ${colors.red};
+  font-size: small;
 `
