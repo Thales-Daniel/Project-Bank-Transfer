@@ -19,4 +19,4 @@ app.use(transactionRouter)
 
 app.use(errorHandler)
 
-app.listen(4003, () => console.log(`Server is running in PORT ${PORT}`))
+app.listen(PORT, () => console.log(`Server is running in PORT ${PORT}`))
