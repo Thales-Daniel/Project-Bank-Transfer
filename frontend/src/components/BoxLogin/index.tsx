@@ -39,7 +39,7 @@ function BoxLogin() {
     }
   }
 
-  if (user.message) return <Navigate to={`/dashboard/${user.accountId}`} />
+  if (user.message) return <Navigate to="/dashboard" />
 
   return (
     <BoxContainer>

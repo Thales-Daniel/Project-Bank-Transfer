@@ -6,4 +6,5 @@ export type colorsType = {
   "black-not-strong": string
   gray: string
   red: string
+  whitesmoke: string
 }

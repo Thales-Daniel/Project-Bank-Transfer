@@ -11,7 +11,7 @@ export const TransferSectioContainer = styled.section`
   height: 16rem;
   justify-content: flex-start;
   padding: 10px;
-  width: 65%;
+  width: 70%;
 `
 
 export const TransferHeader = styled.header`

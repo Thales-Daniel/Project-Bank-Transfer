@@ -16,7 +16,7 @@ function Dashboard() {
     setUser(getUser)
   }, [])
 
-  if (!user.token) return <div>something went wrong, login again</div>
+  if (!user?.token) return <div>something went wrong, login again</div>
 
   if (logOut) return <Navigate to="/" />
 
