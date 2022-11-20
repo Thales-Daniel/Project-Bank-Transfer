@@ -8,7 +8,7 @@ export const SectionBalance = styled.section`
   display: flex;
   flex-direction: column;
   gap: 45px;
-  height: 15rem;
+  height: 16rem;
   justify-content: flex-start;
   padding: 10px;
   width: 30%;
@@ -18,7 +18,7 @@ export const AccountBalance = styled.p`
   align-items: center;
   border-bottom: solid ${colors["black-not-strong"]} 1px;
   display: flex;
-  font-size: xx-large;
+  font-size: 2.5vw;
   gap: 10px;
   justify-content: center;
   text-align: center;
@@ -26,5 +26,5 @@ export const AccountBalance = styled.p`
 `
 
 export const BalanceValue = styled.p`
-  font-size: xx-large;
+  font-size: 2.5vw;
 `
