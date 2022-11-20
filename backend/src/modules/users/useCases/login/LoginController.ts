@@ -15,6 +15,7 @@ export class LoginUserController {
         accountId: result.accountId,
         id: result.id,
         token: result.token,
+        username: result.username,
       })
     } catch (err) {
       next(err)

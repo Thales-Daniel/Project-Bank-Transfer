@@ -9,6 +9,7 @@ export type UserType = {
   accountId: string
   id: string
   token: string
+  username: string
 }
 
 export type ContextType = {
