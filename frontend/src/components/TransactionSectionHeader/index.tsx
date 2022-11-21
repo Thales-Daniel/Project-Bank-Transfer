@@ -1,11 +1,10 @@
 import React, { useContext } from "react"
 
 import { UserContext } from "../../contexts/UserContext"
-import dateFormater from "../../shared/functions/dateFormarter"
-import { Header, FilterTransactionButton, DateFilter } from "./style"
+import { Header, FilterTransactionButton } from "./style"
 
 function TransactionHeader() {
-  const { filter, setFilter, setFilterDate } = useContext(UserContext)
+  const { filter, setFilter } = useContext(UserContext)
   return (
     <Header>
       <FilterTransactionButton
@@ -26,10 +25,6 @@ function TransactionHeader() {
       >
         Cash Out
       </FilterTransactionButton>
-      <DateFilter
-        type="date"
-        onChange={(event) => setFilterDate(dateFormater(event.target.value))}
-      />
     </Header>
   )
 }

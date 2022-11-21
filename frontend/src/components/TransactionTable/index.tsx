@@ -10,9 +10,10 @@ import dateFormater from "../../shared/functions/dateFormarter"
 function TransactionTable() {
   const { transactions, filter, filterDate } = useContext(UserContext)
 
-  const filterTransactions = transactions.filter(
-    (item: TransactionsType) => item.type === filter
-  )
+  const filterTransactions = transactions.filter((item: TransactionsType) => {
+    if (filter) return item.type === filter
+    return transactions
+  })
 
   return (
     <TableContainer>
@@ -21,10 +22,10 @@ function TransactionTable() {
           value={item.value}
           date={dateFormater(item.createdAt)}
           operation={item.type}
-          id={
-            item.type === "cash-in"
-              ? item.debitedAccountId
-              : item.creditedAccountId
+          userName={
+            item.type === "cash-out"
+              ? item.credited_account.Users[0].username
+              : item.debited_account.Users[0].username
           }
         />
       ))}

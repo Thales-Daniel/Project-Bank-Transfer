@@ -19,6 +19,22 @@ export type TransactionsType = {
   creditedAccountId: string
   createdAt: string
   type: string
+  credited_account: {
+    Users: [
+      {
+        username: string
+      }
+    ]
+  }
+  debited_account: {
+    Users: [
+      {
+        username: string
+      }
+    ]
+  }
+
+  account: string
 }
 
 export type ContextType = {

@@ -2,7 +2,7 @@ type RowTypes = {
   value: string
   date: string
   operation: string
-  id: string
+  userName: string
 }
 
 export default RowTypes
