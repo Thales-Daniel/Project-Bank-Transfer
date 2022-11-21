@@ -1,8 +1,13 @@
 import React from "react"
+import { UserProvider } from "./contexts/UserContext"
 import Router from "./router/Router"
 
 function App() {
-  return <Router />
+  return (
+    <UserProvider>
+      <Router />
+    </UserProvider>
+  )
 }
 
 export default App

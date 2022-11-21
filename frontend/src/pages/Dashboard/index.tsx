@@ -1,22 +1,24 @@
-import React, { useEffect, useState } from "react"
-import { Navigate } from "react-router-dom"
+import React, { useContext, useEffect, useState } from "react"
+import { Navigate, useNavigate } from "react-router-dom"
 
 import HeaderDashboard from "../../components/HeaderDashboard"
 import getLocalStorage from "../../shared/functions/getLocalStorage"
 import DashboardMain from "../../components/DashboardMain"
-import { UserType } from "../../shared/types/contextTypes"
 import { DashbordContainer, MainContainer } from "./style"
+import { UserContext } from "../../contexts/UserContext"
 
 function Dashboard() {
-  const [user, setUser] = useState({} as UserType)
+  const { user, setUser } = useContext(UserContext)
   const [logOut, setLogOut] = useState(false)
 
-  useEffect(() => {
-    const getUser = getLocalStorage()
-    setUser(getUser)
-  }, [])
+  const navigate = useNavigate()
 
-  if (!user?.token) return <div>something went wrong, login again</div>
+  const getUser = getLocalStorage()
+
+  useEffect(() => {
+    if (!getUser?.token) return navigate("/")
+    setUser(getUser)
+  }, [navigate])
 
   if (logOut) return <Navigate to="/" />
 

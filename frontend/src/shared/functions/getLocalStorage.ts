@@ -4,7 +4,7 @@ const getLocalStorage = () => {
     return null
   }
   const user = JSON.parse(result)
-  return user ?? null
+  return user
 }
 
 export default getLocalStorage

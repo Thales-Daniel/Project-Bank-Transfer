@@ -7,6 +7,7 @@ import login from "../../services/postLogin"
 import setLocalStorage from "../../shared/functions/setLocalStorage"
 import { UserType } from "../../shared/types/contextTypes"
 
+import { ErrorComponent } from "../BoxRegister/style"
 import {
   BoxContainer,
   FildTitle,
@@ -25,6 +26,7 @@ function BoxLogin() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [user, setUser] = useState({} as UserType)
+  const [showError, setShowError] = useState(false)
   const [err, setErr] = useState("")
 
   const handleLogin = async () => {
@@ -36,6 +38,11 @@ function BoxLogin() {
       }
     } catch (error: any) {
       setErr(error.toString())
+      setShowError(true)
+      setTimeout(() => {
+        setShowError(false)
+        setErr("")
+      }, 5000)
     }
   }
 
@@ -74,6 +81,7 @@ function BoxLogin() {
           {!showPassword ? <GiPadlock /> : <GiPadlockOpen />}
         </Icons>
       </Label>
+      {showError && <ErrorComponent>{err}</ErrorComponent>}
       <LoginButton onClick={() => handleLogin()}>Login</LoginButton>
       <SignUpContainer>
         have an account? <LinkSingUp to="/register">Sign Up</LinkSingUp>

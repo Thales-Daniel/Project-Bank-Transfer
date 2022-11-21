@@ -6,7 +6,7 @@ export const DashbordContainer = styled.div`
   background-color: ${colors["blue-semi-black"]};
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 `
 
 export const MainContainer = styled.div`

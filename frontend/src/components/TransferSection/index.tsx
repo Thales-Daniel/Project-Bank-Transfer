@@ -1,6 +1,10 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
+
 import { BiUser } from "react-icons/bi"
 import { FaMoneyBillWave } from "react-icons/fa"
+import { UserContext } from "../../contexts/UserContext"
+import postTransfer from "../../services/postTransfer"
+import getLocalStorage from "../../shared/functions/getLocalStorage"
 
 import {
   Icons,
@@ -15,15 +19,32 @@ import {
 function TransferSection() {
   const [accountNumber, setAccountNumber] = useState("")
   const [cash, setCash] = useState<number>(0)
+  const [err, setErr] = useState("")
+
+  const { setUser } = useContext(UserContext)
+
+  const handleTransfer = async () => {
+    try {
+      const user = getLocalStorage()
+      if (user.token) {
+        await postTransfer(user.accountId, accountNumber, cash, user.token)
+      }
+      setUser(user)
+    } catch (error) {
+      setErr(err)
+    }
+  }
+
   return (
     <TransferSectioContainer>
       <TransferHeader>Transfer</TransferHeader>
       <TransferInputContainer>
         <TransferLabel>
-          Account Number
+          Username
           <TransferInput
             value={accountNumber}
             onChange={(event) => setAccountNumber(event?.target.value)}
+            color={err ? "red" : "gray-border"}
           />
           <Icons>
             <BiUser />
@@ -35,12 +56,15 @@ function TransferSection() {
             type="number"
             value={cash}
             onChange={(event) => setCash(parseFloat(event.target.value))}
+            color={err ? "red" : "gray-border"}
           />
           <Icons>
             <FaMoneyBillWave />
           </Icons>
         </TransferLabel>
-        <TransferButton>Transfer</TransferButton>
+        <TransferButton onClick={() => handleTransfer()}>
+          Transfer
+        </TransferButton>
       </TransferInputContainer>
     </TransferSectioContainer>
   )

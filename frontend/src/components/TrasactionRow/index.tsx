@@ -1,14 +1,15 @@
 import React from "react"
 
+import RowTypes from "../../shared/types/RowTypes"
 import { RowContainer, RowValue } from "./styled"
 
-function TransactionRow() {
+function TransactionRow({ value, date, operation, id }: RowTypes) {
   return (
     <RowContainer>
-      <RowValue>Cash In</RowValue>
-      <RowValue>R$ 22,00</RowValue>
-      <RowValue>22/11/2022</RowValue>
-      <RowValue>753d51c4-7b78-431e-a56c-d196bd55d9be</RowValue>
+      <RowValue>{value}</RowValue>
+      <RowValue>{date}</RowValue>
+      <RowValue>{operation}</RowValue>
+      <RowValue>{id}</RowValue>
     </RowContainer>
   )
 }
