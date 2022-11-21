@@ -7,7 +7,6 @@ import login from "../../services/postLogin"
 import setLocalStorage from "../../shared/functions/setLocalStorage"
 import { UserType } from "../../shared/types/contextTypes"
 
-import { ErrorComponent } from "../BoxRegister/style"
 import {
   BoxContainer,
   FildTitle,
@@ -20,6 +19,7 @@ import {
   InputPassword,
   InputLogin,
 } from "./style"
+import { ErrorComponent } from "../../shared/styles/GlobalStyles"
 
 function BoxLogin() {
   const [showPassword, setShowPassword] = useState(false)

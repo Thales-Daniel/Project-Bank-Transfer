@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useContext } from "react"
 import { BiLogOut } from "react-icons/bi"
+import { UserContext } from "../../contexts/UserContext"
 
 import logoNg from "../../shared/images/logo_ng.png"
 import HeaderType from "../../shared/types/headerTypes"
@@ -12,7 +13,12 @@ import {
 } from "./style"
 
 function HeaderDashboard({ user, setLogout }: HeaderType) {
+  const { setFilterDate, setTransactions, setFilter } = useContext(UserContext)
+
   const handleLogout = () => {
+    setFilter("")
+    setFilterDate("")
+    setTransactions([])
     localStorage.clear()
     setLogout(true)
   }

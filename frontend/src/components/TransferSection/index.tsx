@@ -5,6 +5,10 @@ import { FaMoneyBillWave } from "react-icons/fa"
 import { UserContext } from "../../contexts/UserContext"
 import postTransfer from "../../services/postTransfer"
 import getLocalStorage from "../../shared/functions/getLocalStorage"
+import {
+  ErrorComponent,
+  SucessComponent,
+} from "../../shared/styles/GlobalStyles"
 
 import {
   Icons,
@@ -19,7 +23,10 @@ import {
 function TransferSection() {
   const [accountNumber, setAccountNumber] = useState("")
   const [cash, setCash] = useState<number>(0)
-  const [err, setErr] = useState("")
+  const [sucess, setSucess] = useState(false)
+  const [showSucess, setShowSucess] = useState("")
+  const [showError, setShowError] = useState("")
+  const [error, setError] = useState(false)
 
   const { setUser } = useContext(UserContext)
 
@@ -27,11 +34,27 @@ function TransferSection() {
     try {
       const user = getLocalStorage()
       if (user.token) {
-        await postTransfer(user.accountId, accountNumber, cash, user.token)
+        const result = await postTransfer(
+          user.accountId,
+          accountNumber,
+          cash,
+          user.token
+        )
+        setShowSucess(result.message)
+        setSucess(true)
+        setTimeout(() => {
+          setSucess(false)
+          setShowSucess("")
+        }, 3500)
       }
       setUser(user)
-    } catch (error) {
-      setErr(err)
+    } catch (err: any) {
+      setShowError(err.toString())
+      setError(true)
+      setTimeout(() => {
+        setError(false)
+        setShowError("")
+      }, 3500)
     }
   }
 
@@ -44,7 +67,7 @@ function TransferSection() {
           <TransferInput
             value={accountNumber}
             onChange={(event) => setAccountNumber(event?.target.value)}
-            color={err ? "red" : "gray-border"}
+            color={showError ? "red" : "gray-border"}
           />
           <Icons>
             <BiUser />
@@ -56,16 +79,16 @@ function TransferSection() {
             type="number"
             value={cash}
             onChange={(event) => setCash(parseFloat(event.target.value))}
-            color={err ? "red" : "gray-border"}
+            color={showError ? "red" : "gray-border"}
           />
           <Icons>
             <FaMoneyBillWave />
           </Icons>
         </TransferLabel>
-        <TransferButton onClick={() => handleTransfer()}>
-          Transfer
-        </TransferButton>
       </TransferInputContainer>
+      {sucess && <SucessComponent>{showSucess}</SucessComponent>}
+      {error && <ErrorComponent>{showError}</ErrorComponent>}
+      <TransferButton onClick={() => handleTransfer()}>Transfer</TransferButton>
     </TransferSectioContainer>
   )
 }

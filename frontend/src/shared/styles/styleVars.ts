@@ -8,6 +8,7 @@ const colors: colorsType = {
   gray: "gray",
   red: "red",
   whitesmoke: "#f5f5f5",
+  green: "green",
 }
 
 export default colors

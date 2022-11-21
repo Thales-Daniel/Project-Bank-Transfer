@@ -7,4 +7,5 @@ export type colorsType = {
   gray: string
   red: string
   whitesmoke: string
+  green: string
 }

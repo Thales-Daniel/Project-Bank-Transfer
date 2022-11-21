@@ -81,8 +81,3 @@ export const LinkLogin = styled(Link)`
   border: none;
   color: ${colors["black-not-strong"]};
 `
-
-export const ErrorComponent = styled.p`
-  color: ${colors.red};
-  font-size: small;
-`

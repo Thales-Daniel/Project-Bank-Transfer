@@ -4,6 +4,10 @@ import { GiPadlockOpen, GiPadlock } from "react-icons/gi"
 
 import register from "../../services/postRegister"
 import {
+  ErrorComponent,
+  SucessComponent,
+} from "../../shared/styles/GlobalStyles"
+import {
   BoxContainer,
   FildTitle,
   Icons,
@@ -11,7 +15,6 @@ import {
   BoxContainerTitle,
   InputPassword,
   InputLogin,
-  ErrorComponent,
   LinkLogin,
   GoToLogin,
   CreateAccountButton,
@@ -25,6 +28,8 @@ function BoxRegister() {
   const [confirmPassword, setConfirmPassword] = useState("")
   const [showError, setShowError] = useState(false)
   const [err, setErr] = useState("")
+  const [showSucess, setShowSucess] = useState("")
+  const [sucess, setSucess] = useState(false)
 
   const handleRegister = async () => {
     try {
@@ -32,6 +37,12 @@ function BoxRegister() {
         throw new Error("password have be the same")
 
       await register(username, password)
+      setShowSucess("user created successfully")
+      setSucess(true)
+      setTimeout(() => {
+        setSucess(false)
+        setShowSucess("")
+      }, 3500)
     } catch (error: any) {
       setErr(error.toString())
       setShowError(true)
@@ -103,6 +114,7 @@ function BoxRegister() {
           {!showConfirmPassword ? <GiPadlock /> : <GiPadlockOpen />}
         </Icons>
       </Label>
+      {sucess && <SucessComponent>{showSucess}</SucessComponent>}
       {showError && <ErrorComponent>{err}</ErrorComponent>}
       <CreateAccountButton onClick={() => handleRegister()}>
         Create Account

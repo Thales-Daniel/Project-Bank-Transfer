@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
+import colors from "../styles/styleVars"
 
 const GlobalStyle = createGlobalStyle`
 
@@ -8,6 +9,16 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
+`
+
+export const ErrorComponent = styled.p`
+  color: ${colors.red};
+  font-size: small;
+`
+
+export const SucessComponent = styled.p`
+  color: ${colors.green};
+  font-size: small;
 `
 
 export default GlobalStyle

@@ -26,5 +26,5 @@ export const AccountBalance = styled.p`
 `
 
 export const BalanceValue = styled.p`
-  font-size: 2.5vw;
+  font-size: 4vw;
 `

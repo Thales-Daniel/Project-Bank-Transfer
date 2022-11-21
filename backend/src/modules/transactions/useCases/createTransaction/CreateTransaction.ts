@@ -4,7 +4,7 @@ import CreateTrasactionTypes from "../../../../helpers/Types/CreateTrasactionTyp
 
 export class CreateTransaction {
   async execute({ myId, username, myAccountId, value }: CreateTrasactionTypes) {
-    if (+value < 0) throw new ErrorApp("Invalid Value")
+    if (+value <= 0) throw new ErrorApp("Invalid Value")
 
     const accountDebited = await prisma.users.findFirst({
       where: {

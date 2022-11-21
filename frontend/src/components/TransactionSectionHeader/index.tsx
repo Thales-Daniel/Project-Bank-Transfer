@@ -1,10 +1,10 @@
 import React, { useContext } from "react"
 
 import { UserContext } from "../../contexts/UserContext"
-import { Header, FilterTransactionButton } from "./style"
+import { Header, FilterTransactionButton, DateFilter } from "./style"
 
 function TransactionHeader() {
-  const { filter, setFilter } = useContext(UserContext)
+  const { filter, setFilter, setFilterDate } = useContext(UserContext)
   return (
     <Header>
       <FilterTransactionButton
@@ -25,6 +25,10 @@ function TransactionHeader() {
       >
         Cash Out
       </FilterTransactionButton>
+      <DateFilter
+        type="date"
+        onChange={(event) => setFilterDate(event.target.value)}
+      />
     </Header>
   )
 }

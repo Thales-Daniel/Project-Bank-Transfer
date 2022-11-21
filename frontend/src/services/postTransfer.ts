@@ -22,7 +22,7 @@ const postTransfer = async (
     )
     return data
   } catch (err: any) {
-    throw Error(err.response.data.message)
+    throw new Error(err.response.data.message)
   }
 }
 

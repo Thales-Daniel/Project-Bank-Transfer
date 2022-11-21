@@ -9,7 +9,7 @@ export const TransferSectioContainer = styled.section`
   display: flex;
   flex-direction: column;
   height: 16rem;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding: 10px;
   width: 70%;
 `
@@ -27,9 +27,8 @@ export const TransferHeader = styled.header`
 
 export const TransferInputContainer = styled.div`
   display: flex;
-  flex-direction: column;
   gap: 8px;
-  width: 40%;
+  width: 70%;
 `
 export const TransferLabel = styled.label`
   display: flex;
@@ -83,5 +82,5 @@ export const TransferButton = styled.button`
   height: 2rem;
   justify-content: center;
   text-decoration: none;
-  width: 100%;
+  width: 40%;
 `
