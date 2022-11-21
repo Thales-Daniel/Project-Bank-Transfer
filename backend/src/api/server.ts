@@ -17,6 +17,6 @@ app.use(loginRouter)
 app.use(balanceRouter)
 app.use(transactionRouter)
 
-app.use(errorHandler)
+// app.use(errorHandler)
 
 app.listen(PORT, () => console.log(`Server is running in PORT ${PORT}`))

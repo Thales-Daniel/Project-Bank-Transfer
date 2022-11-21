@@ -8,7 +8,6 @@ const login = async (username: string, password: string) => {
     })
     return data
   } catch (err: any) {
-    console.log(err)
     throw Error(err.response.data.message)
   }
 }

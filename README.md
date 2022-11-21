@@ -91,11 +91,18 @@ O front-end do projeto foi desenvolvido em React.js com o gerenciador de estado 
 
 `Front-end`
 <br/><br/>
-![login](https://user-images.githubusercontent.com/82240828/203141697-71a896de-5aa2-4356-85b1-3ce5593764c5.gif)
-![dashboard](https://user-images.githubusercontent.com/82240828/203141674-274b75db-c594-43fd-988a-b9ad979afd89.gif)
-![register](https://user-images.githubusercontent.com/82240828/203141691-c1c2bc66-203b-4b7f-813b-788d5ed1977c.gif)
-<br/><br/>
-`Back-end`
+
+- Login
+  ![login](https://user-images.githubusercontent.com/82240828/203141697-71a896de-5aa2-4356-85b1-3ce5593764c5.gif)
+- Dashboard
+
+  ![dashboard](https://user-images.githubusercontent.com/82240828/203141674-274b75db-c594-43fd-988a-b9ad979afd89.gif)
+
+- Register
+
+  ![register](https://user-images.githubusercontent.com/82240828/203141691-c1c2bc66-203b-4b7f-813b-788d5ed1977c.gif)
+  <br/><br/>
+  `Back-end`
 
 - Post Login
 

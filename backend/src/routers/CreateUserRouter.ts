@@ -8,4 +8,10 @@ const createUserController = new CreateUserController().handle
 
 userRouter.post("/user/register", validateUser, createUserController)
 
+userRouter.get("/", (request, response) => {
+  response.json("Testando API")
+})
+
+console.log("teste")
+
 export default userRouter
