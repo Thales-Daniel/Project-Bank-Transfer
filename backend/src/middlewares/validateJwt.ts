@@ -11,7 +11,7 @@ type JwtPayload = {
   }
 }
 
-export const validateJwt = async (
+export const validateJwt = (
   req: Request,
   _res: Response,
   next: NextFunction
@@ -19,9 +19,11 @@ export const validateJwt = async (
   try {
     const secret = fileReader("jwt.evaluation.key")
     const token = req.headers.authorization
+
     if (!token) throw new ErrorApp("Token not Found", 400)
 
     const { data } = verify(token, secret) as JwtPayload
+
     req.username = data.username.toString()
     req.accountId = data.accountId.toString()
 

@@ -6,8 +6,13 @@ export class GetTransaction {
   async execute({ paransId, accountId, type }: GetTransactionsTypes) {
     if (paransId !== accountId) throw new ErrorApp("Operation not allowed", 400)
 
+    let transactions: any = []
+
     if (!type) {
-      const transations = await prisma.transactions.findMany({
+      transactions = await prisma.transactions.findMany({
+        orderBy: {
+          createdAt: "desc",
+        },
         where: {
           OR: [
             {
@@ -18,26 +23,111 @@ export class GetTransaction {
             },
           ],
         },
+        select: {
+          id: true,
+          value: true,
+          creditedAccountId: true,
+          debitedAccountId: true,
+          createdAt: true,
+          credited_account: {
+            select: {
+              Users: {
+                select: {
+                  username: true,
+                },
+              },
+            },
+          },
+          debited_account: {
+            select: {
+              Users: {
+                select: {
+                  username: true,
+                },
+              },
+            },
+          },
+        },
       })
-      return transations
     }
-
-    if (type === "cash-in") {
-      const transations = await prisma.transactions.findMany({
+    if (type == "cash-in") {
+      transactions = await prisma.transactions.findMany({
         where: {
           creditedAccountId: paransId,
         },
+        select: {
+          id: true,
+          value: true,
+          creditedAccountId: true,
+          debitedAccountId: true,
+          createdAt: true,
+          credited_account: {
+            select: {
+              Users: {
+                select: {
+                  username: true,
+                },
+              },
+            },
+          },
+          debited_account: {
+            select: {
+              Users: {
+                select: {
+                  username: true,
+                },
+              },
+            },
+          },
+        },
       })
-      return transations
     }
 
-    if (type === "cash-out") {
-      const transations = await prisma.transactions.findMany({
+    if (type == "cash-out") {
+      transactions = await prisma.transactions.findMany({
         where: {
           debitedAccountId: paransId,
         },
+        select: {
+          id: true,
+          value: true,
+          creditedAccountId: true,
+          debitedAccountId: true,
+          createdAt: true,
+          credited_account: {
+            select: {
+              Users: {
+                select: {
+                  username: true,
+                },
+              },
+            },
+          },
+          debited_account: {
+            select: {
+              Users: {
+                select: {
+                  username: true,
+                },
+              },
+            },
+          },
+        },
       })
-      return transations
+    }
+    if (transactions.length > 0) {
+      transactions.forEach((element: any) => {
+        if (element.creditedAccountId == paransId) {
+          element.type = "cash-in"
+          element.account = element.credited_account.Users[0].username
+        } else if (element.debitedAccountId == paransId) {
+          element.type = "cash-out"
+          element.account = element.debited_account.Users[0].username
+        }
+      })
+      return transactions
+    } else {
+      return []
     }
   }
 }

@@ -23,7 +23,7 @@ export class LoginUser {
     if (!hashPassword) throw new ErrorApp("Wrong Password", 400)
 
     const token = jwt.sign({ data: findUser }, secret, {
-      expiresIn: "1d",
+      expiresIn: "24h",
     })
 
     return {

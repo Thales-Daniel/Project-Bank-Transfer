@@ -6,9 +6,18 @@ export class CreateTransaction {
   async execute({ myId, username, myAccountId, value }: CreateTrasactionTypes) {
     if (+value < 0) throw new ErrorApp("Invalid Value")
 
-    const accountDebited = await prisma.accounts.findFirst({
+    const accountDebited = await prisma.users.findFirst({
       where: {
-        id: myId,
+        accountId: myId,
+      },
+      select: {
+        username: true,
+        accountId: true,
+        accountFK: {
+          select: {
+            balance: true,
+          },
+        },
       },
     })
 
@@ -29,10 +38,10 @@ export class CreateTransaction {
       },
     })
 
-    if (!accountCredited || username === accountCredited.username)
+    if (!accountCredited || username === accountDebited.username)
       throw new ErrorApp("Invalid username account", 404)
 
-    if (+value > +accountDebited.balance)
+    if (+value > +accountDebited.accountFK.balance)
       throw new ErrorApp("Insufficient balance", 400)
 
     await prisma.transactions.create({
@@ -57,7 +66,7 @@ export class CreateTransaction {
         id: myId,
       },
       data: {
-        balance: +accountDebited.balance - +value,
+        balance: +accountDebited.accountFK.balance - +value,
       },
     })
 
