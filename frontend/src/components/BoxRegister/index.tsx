@@ -61,6 +61,7 @@ function BoxRegister() {
         <InputLogin
           type="text"
           id="Username"
+          placeholder="Username"
           value={username}
           onChange={(event) => setUsername(event.target.value)}
           color={err === "Error: User is too short" ? "red" : "gray-border"}
@@ -74,6 +75,7 @@ function BoxRegister() {
         <InputPassword
           type={showPassword ? "text" : "password"}
           id="passord"
+          placeholder="**********"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           color={
@@ -97,6 +99,7 @@ function BoxRegister() {
           type={showConfirmPassword ? "text" : "password"}
           id="confirmPassword"
           value={confirmPassword}
+          placeholder="**********"
           onChange={(event) => setConfirmPassword(event.target.value)}
           color={
             err === "Error: password have be the same" ||
