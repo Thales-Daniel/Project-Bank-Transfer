@@ -1,8 +1,8 @@
-# Boas vindas ao repositório Ink Calculator!
+# Boas vindas ao repositório Ng.cash!
 
-Este repositório tem como objetivo criar um aplicação Full-stack, onde sera criado Uma aplicação web ou mobile que ajude o usuário a calcular a quantidade de tinta necessária para pintar uma sala.
-Essa aplicação deve considerar que a sala é composta de 4 paredes e deve permitir que o usuário escolha qual a medida de cada parede e quantas janelas e portas possuem cada parede.
-Com base na quantidade necessária o sistema deve apontar tamanhos de lata de tinta que o usuário deve comprar, sempre priorizando as latas maiores. Ex: se o usuário precisa de 19 litros, ele deve sugerir 1 lata de 18L + 2 latas de 0,5L
+Este Projeto tem como finalidade estruturar uma aplicação web fullstack, dockerizada, cujo objetivo seja possibilitar que usuários da NG consigam realizar transferências internas entre si
+
+<br/><br/>
 
 # Sumário
 
@@ -11,6 +11,8 @@ Com base na quantidade necessária o sistema deve apontar tamanhos de lata de ti
 - [Executando o projeto](#executando-o-projeto)
 - [Proximos passos](#proximos-passos)
 - [Principal Desafio](#desafio-principal)
+
+<br/><br/>
 
 # Instruções:
 
@@ -44,8 +46,7 @@ yarn start
 
 # Tecnologias
 
-O front-end do projeto foi desenvolvido em React.js com o gerenciador de estado Context-api, foram utilizadas
-4 bibliotecas para auxiliar o desenvolvimento do projeto.
+O front-end do projeto foi desenvolvido em React.js com o gerenciador de estado Context-api, foram utilizadas as bibliotecas a baixo para auxiliar o desenvolvimento do projeto.
 
 - `Axios`
 - `eslint`
@@ -55,14 +56,15 @@ O front-end do projeto foi desenvolvido em React.js com o gerenciador de estado 
 - `React`
 
 <div align="center">
+  <img alt="typescript" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />
+  <img alt="react" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
   <img alt="eslint" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg" />
   <img alt="axios" height="60" width="80" src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Axios_logo_%282020%29.svg" />
-  <img alt="router-dom" height="90" width="100" src="https://testing-library.com/img/octopus-128x128.png" />
+  &nbsp
+  <img alt="styled-components" height="60" width="70" src="https://www.styled-components.com/atom.png" />
   <br />
   <br />
 </div>
-  <br />
-  <br />
   
   O back-end do projeto foi desenvolvido em Node.js com Express e Typescript. As tecnologias para desenvolver a API foram as seguintes:
 
@@ -78,22 +80,51 @@ O front-end do projeto foi desenvolvido em React.js com o gerenciador de estado 
   <img alt="express" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" />
   <img alt="eslint" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg" />
   <img alt="typescript" height="60" width="80" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />
+  <img height="65" width="80" src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_light_prisma_icon_130444.png" />
   <br />
   <br />
 </div>
-  <br />
-  <br />
+<br/><br/>
+<br/><br/>
 
 # Executando o projeto
 
 `Front-end`
-
+<br/><br/>
+![login](https://user-images.githubusercontent.com/82240828/203141697-71a896de-5aa2-4356-85b1-3ce5593764c5.gif)
+![dashboard](https://user-images.githubusercontent.com/82240828/203141674-274b75db-c594-43fd-988a-b9ad979afd89.gif)
+![register](https://user-images.githubusercontent.com/82240828/203141691-c1c2bc66-203b-4b7f-813b-788d5ed1977c.gif)
+<br/><br/>
 `Back-end`
+
+- Post Login
+
+![login](https://user-images.githubusercontent.com/82240828/203143300-9d9f1ac7-d58e-410c-aa6d-ceafe59d8a16.png)
+
+- Post Register
+
+![register](https://user-images.githubusercontent.com/82240828/203143297-3743ba3f-c596-4fcf-895e-5b183b7cef16.png)
+
+- Get All Transactions
+
+![getTransaction](https://user-images.githubusercontent.com/82240828/203143303-e0346d74-682b-41e3-b6ea-30ad28f1af9d.png)
+
+- Get Balance
+
+![balance](https://user-images.githubusercontent.com/82240828/203143305-90eff99f-cc1a-4dfa-a374-3cf76f82d5fa.png)
+
+- Post Transactions
+
+![transaction](https://user-images.githubusercontent.com/82240828/203143293-b6b52f2a-5271-465d-ae86-217c260bbb07.png)
+
+<br/><br/>
 
 # Desafio Principal
 
 O principal desafio do projeto foi organizar por onde seria iniciado a produção, alem disso, houveram problemas na hora da estilização, que
 causou um atraso grande.
+
+<br/><br/>
 
 # Proximos passos
 
