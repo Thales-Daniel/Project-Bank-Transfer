@@ -12,6 +12,4 @@ userRouter.get("/", (request, response) => {
   response.json("Testando API")
 })
 
-console.log("teste")
-
 export default userRouter

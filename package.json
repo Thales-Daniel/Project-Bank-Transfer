@@ -6,10 +6,12 @@
   "scripts": {
     "install:api": "cd ./backend && yarn install",
     "install:web": "cd ./frontend && yarn install",
+    "docker:web": "cd ./frontend && docker-compose up --build",
     "build:all": "yarn install && concurrently \"yarn install:api\" \"yarn install:web\"",
     "start:web": "cd ./frontend && yarn dev",
     "start:api": "cd ./backend && yarn dev",
-    "start": "concurrently \"yarn start:api\" \"yarn start:web\""
+    "start": "concurrently \"yarn start:api\" \"yarn start:web\"",
+    "start:with:docker": "concurrently \"yarn start:api\" \"yarn docker:web\""
   },
   "repository": {
     "type": "git",

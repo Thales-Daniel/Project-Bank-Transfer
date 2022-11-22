@@ -44,6 +44,18 @@ E para finalmente iniciar o projeto, é necessário o comando a baixo
 yarn start
 ```
 
+<strong>OBSERVAÇÃO!!!!</strong>
+
+```
+O docker do backend teve alguns problemas, decidi então manter apenas a Dockerização apenas do front, caso queria usar, é necessario usar o comando na pasta frontend:
+
+  docker-compose up --build
+      ou
+  yarn start:with:docker na pasta raiz
+
+
+```
+
 # Tecnologias
 
 O front-end do projeto foi desenvolvido em React.js com o gerenciador de estado Context-api, foram utilizadas as bibliotecas a baixo para auxiliar o desenvolvimento do projeto.
