@@ -50,10 +50,10 @@ yarn start
 O docker do backend teve alguns problemas, decidi então manter apenas a Dockerização apenas do front, caso queria usar, é necessario usar o comando na pasta frontend:
 
   docker-compose up --build
+
       ou
+
   yarn start:with:docker na pasta raiz
-
-
 ```
 
 # Tecnologias
@@ -140,8 +140,7 @@ O front-end do projeto foi desenvolvido em React.js com o gerenciador de estado 
 
 # Desafio Principal
 
-O principal desafio do projeto foi organizar por onde seria iniciado a produção, alem disso, houveram problemas na hora da estilização, que
-causou um atraso grande.
+O principal desafio do projeto foi organizar por onde seria iniciado a produção, alem disso, houveram problemas na hora da dockerização do back-end que me impediram de concluir 100% do projeto.
 
 <br/><br/>
 
