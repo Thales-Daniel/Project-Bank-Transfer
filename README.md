@@ -28,32 +28,29 @@ entre na pasta do repositorio
 cd ng-cash
 ```
 
-Logo em seguida, Utilize o comando yarn build:all,
-pode demorar um pouca ja que instala as dependencias de todas as aplicações
+Logo em seguida, entre na pasta do <strong>backend</strong> e execute o comando para o docker iniciar:
 
 ```
-yarn build:all
+docker-compose up -d
 ```
 
-É necessario também entrar na pasta do back-end e criar o arquivo
-.env, assim como o .envExample.
-
-E para finalmente iniciar o projeto, é necessário o comando a baixo
+É necessário rodar o camando abaixo para gerar ou atualizar o banco de dados
 
 ```
-yarn start
+yarn prisma migrate dev
 ```
 
-<strong>OBSERVAÇÃO!!!!</strong>
+E
 
 ```
-O docker do backend teve alguns problemas, decidi então manter apenas a Dockerização apenas do front, caso queria usar, é necessario usar o comando na pasta frontend:
+yarn prisma generate
 
-  docker-compose up --build
+```
 
-      ou
+E para finalizar, entre na pasta <strong>frontend</strong> e inicie o docker com o comando abaixo:
 
-  yarn start:with:docker na pasta raiz
+```
+docker-compose up --build
 ```
 
 # Tecnologias
