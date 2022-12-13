@@ -1,6 +1,6 @@
 import React from "react"
 
-import BoxLogin from "../../components/BoxLogin"
+import BoxLogin from "../../components/organisms/BoxLogin"
 import LoginContainer from "./style"
 
 function Login() {

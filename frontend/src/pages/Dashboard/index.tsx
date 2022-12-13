@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react"
 import { Navigate, useNavigate } from "react-router-dom"
 
-import HeaderDashboard from "../../components/HeaderDashboard"
+import HeaderDashboard from "../../components/organisms/HeaderDashboard"
 import getLocalStorage from "../../shared/functions/getLocalStorage"
-import DashboardMain from "../../components/DashboardMain"
+import DashboardMain from "../../components/organisms/DashboardMain"
 import { DashbordContainer, MainContainer } from "./style"
 import { UserContext } from "../../contexts/UserContext"
 

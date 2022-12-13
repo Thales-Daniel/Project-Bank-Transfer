@@ -1,6 +1,6 @@
 import React from "react"
 
-import BoxRegister from "../../components/BoxRegister"
+import BoxRegister from "../../components/organisms/BoxRegister"
 import RegisterContainer from "./style"
 
 function Register() {
