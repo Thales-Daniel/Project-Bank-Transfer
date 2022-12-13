@@ -1,22 +1,13 @@
 import React, { useState } from "react"
 import { Navigate } from "react-router-dom"
-import { BiUser } from "react-icons/bi"
-import { GiPadlockOpen, GiPadlock } from "react-icons/gi"
 
 import login from "../../../services/postLogin"
 import setLocalStorage from "../../../shared/functions/setLocalStorage"
 import { UserType } from "../../../shared/types/contextTypes"
 import { ErrorComponent } from "../../../shared/styles/GlobalStyles"
-import {
-  Icons,
-  BoxContainer,
-  FildTitle,
-  Label,
-  BoxContainerTitle,
-  LoginButton,
-  InputPassword,
-  InputLogin,
-} from "./style"
+import { BoxContainer, BoxContainerTitle, LoginButton } from "./style"
+import UsernameField from "../../molecules/UsernameField"
+import PasswordField from "../../molecules/PasswordField"
 import SingUpContainer from "../../atoms/SingUpContainer"
 
 function BoxLogin() {
@@ -49,38 +40,15 @@ function BoxLogin() {
   return (
     <BoxContainer>
       <BoxContainerTitle>Login</BoxContainerTitle>
-      <Label htmlFor="Username">
-        <FildTitle>Username</FildTitle>
-        <InputLogin
-          type="text"
-          id="Username"
-          placeholder="Username"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-          color={err === "Error: User not Registred" ? "red" : "gray-border"}
-        />
-        <Icons>
-          <BiUser />
-        </Icons>
-      </Label>
-      <Label htmlFor="password">
-        <FildTitle>Password</FildTitle>
-        <InputPassword
-          type={showPassword ? "text" : "password"}
-          id="passord"
-          placeholder="**********"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          color={err === "Error: Wrong Password" ? "red" : "gray-border"}
-        />
-        <Icons
-          as="button"
-          onClick={() => setShowPassword(!showPassword)}
-          theme="pointer"
-        >
-          {!showPassword ? <GiPadlock /> : <GiPadlockOpen />}
-        </Icons>
-      </Label>
+      <UsernameField username={username} setUsername={setUsername} err={err} />
+      <PasswordField
+        title="Password"
+        showPassword={showPassword}
+        setPassword={setPassword}
+        err={err}
+        password={password}
+        setShowPassword={setShowPassword}
+      />
       {showError && <ErrorComponent>{err}</ErrorComponent>}
       <LoginButton onClick={() => handleLogin()}>Login</LoginButton>
       <SingUpContainer />

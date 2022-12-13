@@ -1,4 +1,3 @@
-# Imagem de Origem
 FROM node
 ENV HOME=/home/app
 WORKDIR $HOME

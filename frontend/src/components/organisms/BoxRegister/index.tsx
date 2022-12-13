@@ -1,24 +1,14 @@
 import React, { useState } from "react"
-import { BiUser } from "react-icons/bi"
-import { GiPadlockOpen, GiPadlock } from "react-icons/gi"
 
 import register from "../../../services/postRegister"
 import {
   ErrorComponent,
   SucessComponent,
 } from "../../../shared/styles/GlobalStyles"
-import {
-  BoxContainer,
-  FildTitle,
-  Icons,
-  Label,
-  BoxContainerTitle,
-  InputPassword,
-  InputLogin,
-  LinkLogin,
-  GoToLogin,
-  CreateAccountButton,
-} from "./style"
+import ReturnToLoginContainer from "../../atoms/ReturnToLoginContainer"
+import PasswordField from "../../molecules/PasswordField"
+import UsernameField from "../../molecules/UsernameField"
+import { BoxContainer, BoxContainerTitle, CreateAccountButton } from "./style"
 
 function BoxRegister() {
   const [showPassword, setShowPassword] = useState(false)
@@ -56,75 +46,29 @@ function BoxRegister() {
   return (
     <BoxContainer>
       <BoxContainerTitle>Register</BoxContainerTitle>
-      <Label htmlFor="Username">
-        <FildTitle>Username</FildTitle>
-        <InputLogin
-          type="text"
-          id="Username"
-          placeholder="Username"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-          color={err === "Error: User is too short" ? "red" : "gray-border"}
-        />
-        <Icons>
-          <BiUser />
-        </Icons>
-      </Label>
-      <Label htmlFor="password">
-        <FildTitle>Password</FildTitle>
-        <InputPassword
-          type={showPassword ? "text" : "password"}
-          id="passord"
-          placeholder="**********"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          color={
-            err ===
-            "Error: the password must contain a uppercase letter and a number"
-              ? "red"
-              : "gray-border"
-          }
-        />
-        <Icons
-          as="button"
-          onClick={() => setShowPassword(!showPassword)}
-          theme="pointer"
-        >
-          {!showPassword ? <GiPadlock /> : <GiPadlockOpen />}
-        </Icons>
-      </Label>
-      <Label htmlFor="confirmPassword">
-        <FildTitle>Confirm Password</FildTitle>
-        <InputPassword
-          type={showConfirmPassword ? "text" : "password"}
-          id="confirmPassword"
-          value={confirmPassword}
-          placeholder="**********"
-          onChange={(event) => setConfirmPassword(event.target.value)}
-          color={
-            err === "Error: password have be the same" ||
-            err ===
-              "Error: the password must contain a uppercase letter and a number"
-              ? "red"
-              : "gray-border"
-          }
-        />
-        <Icons
-          as="button"
-          onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-          theme="pointer"
-        >
-          {!showConfirmPassword ? <GiPadlock /> : <GiPadlockOpen />}
-        </Icons>
-      </Label>
+      <UsernameField username={username} setUsername={setUsername} err={err} />
+      <PasswordField
+        title="Password"
+        showPassword={showPassword}
+        setPassword={setPassword}
+        err={err}
+        password={password}
+        setShowPassword={setShowPassword}
+      />
+      <PasswordField
+        title="Confirm Password"
+        showPassword={showConfirmPassword}
+        setPassword={setConfirmPassword}
+        err={err}
+        password={confirmPassword}
+        setShowPassword={setShowConfirmPassword}
+      />
       {sucess && <SucessComponent>{showSucess}</SucessComponent>}
       {showError && <ErrorComponent>{err}</ErrorComponent>}
       <CreateAccountButton onClick={() => handleRegister()}>
         Create Account
       </CreateAccountButton>
-      <GoToLogin>
-        already have an account? <LinkLogin to="/">Make Login</LinkLogin>
-      </GoToLogin>
+      <ReturnToLoginContainer />
     </BoxContainer>
   )
 }
