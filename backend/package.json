@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --inspect --exit-child --transpile-only --ignore-watch node_modules src/api/server.ts"
+    "dev": "ts-node-dev --inspect --exit-child --transpile-only --ignore-watch node_modules src/api/server.ts",
+    "docker:up": "docker-compose up -d"
   },
   "repository": {
     "type": "git",

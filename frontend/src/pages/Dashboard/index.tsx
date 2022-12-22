@@ -20,7 +20,7 @@ function Dashboard() {
     setUser(getUser)
   }, [navigate])
 
-  if (logOut) return <Navigate to="/" />
+  if (logOut) return <Navigate to="/" /> 
 
   return (
     <DashbordContainer>
