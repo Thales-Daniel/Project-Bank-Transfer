@@ -11,8 +11,8 @@ export const Header = styled.header`
   display: flex;
   height: 3.5rem;
   justify-content: space-between;
-  margin-bottom: 15px;
-  padding: 0 20px;
+  margin-bottom: 2.5rem;
+  padding: 0 1.25rem;
   width: 100%;
 `
 
@@ -28,11 +28,11 @@ export const ContainerImageAndWelcome = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 1.875rem;
 `
 
 export const LogoNg = styled.img`
-  border-radius: 10px;
+  border-radius: 0.625rem;
   width: 3rem;
 `
 
@@ -40,7 +40,7 @@ export const LogoutButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 0.3125rem;
   background-color: ${colors.white};
   font-size: medium;
   border: none;

@@ -8,10 +8,17 @@ export const SectionBalance = styled.section`
   display: flex;
   flex-direction: column;
   gap: 45px;
-  height: 16rem;
+  height: 20rem;
   justify-content: flex-start;
   padding: 10px;
   width: 30%;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    p {
+      font-size: xx-large;
+    }
+  }
 `
 
 export const AccountBalance = styled.p`

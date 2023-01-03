@@ -4,6 +4,7 @@ import TransactionRow from "../TrasactionRow"
 import { UserContext } from "../../../contexts/UserContext"
 import { TableContainer } from "./style"
 import { TransactionsType } from "../../../shared/types/contextTypes"
+import TransactionTableHeader from "../TransactionTableHeader"
 
 function TransactionTable() {
   const { transactions, filter, filterDate } = useContext(UserContext)
@@ -16,6 +17,7 @@ function TransactionTable() {
 
   return (
     <TableContainer>
+      <TransactionTableHeader />
       {transactions.map((item) => {
         if (FilterTransactions(item)) {
           return (

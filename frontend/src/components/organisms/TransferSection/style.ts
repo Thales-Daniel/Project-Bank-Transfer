@@ -8,10 +8,14 @@ export const TransferSectioContainer = styled.section`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  height: 16rem;
+  height: 20rem;
   justify-content: space-between;
   padding: 10px;
   width: 70%;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `
 
 export const TransferHeader = styled.header`
@@ -23,13 +27,24 @@ export const TransferHeader = styled.header`
   text-align: center;
   width: 85%;
   margin-bottom: 10px;
+
+  @media (max-width: 600px) {
+    font-size: xx-large;
+  }
 `
 
 export const TransferInputContainer = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 8px;
-  width: 70%;
+  width: 50%;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    flex-direction: column;
+  }
 `
+
 export const TransferLabel = styled.label`
   display: flex;
   flex-direction: column;
