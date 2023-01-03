@@ -25,6 +25,7 @@ function TransactionTable() {
               value={item.value}
               date={item.createdAt.split("T")[0]}
               operation={item.type}
+              key={item.value}
               userName={
                 item.type === "cash-out"
                   ? item.credited_account.Users[0].username
