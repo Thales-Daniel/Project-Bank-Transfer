@@ -1,6 +1,6 @@
 # Boas vindas ao repositório Project-Bank-Transfer
 
-Este Projeto tem como finalidade estruturar uma aplicação web fullstack, dockerizada, cujo objetivo seja possibilitar que usuários da NG consigam realizar transferências internas entre si
+Este Projeto tem como finalidade estruturar uma aplicação web fullstack, dockerizada, cujo objetivo seja possibilitar que usuários do banco consigam realizar transferências internas entre si
 
 <br/><br/>
 
@@ -24,7 +24,7 @@ git@github.com:Thales-Daniel/Project-Bank-Transfer.git
 após isso entre na pasta do repositorio
 
 ```
-cd ng-cash
+cd Project-Bank-Transfer
 ```
 
 Logo em seguida, entre na pasta do backend e execute o comando para o docker iniciar:
@@ -32,7 +32,6 @@ Logo em seguida, entre na pasta do backend e execute o comando para o docker ini
 ```
 docker-compose up -d
 ```
-
 
 Utilize o comando abaixo para atualizar o banco de dados com a migraçao atual do prisma.
 
