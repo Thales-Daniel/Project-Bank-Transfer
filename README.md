@@ -1,4 +1,4 @@
-# Boas vindas ao repositório Ng.cash!
+# Boas vindas ao repositório Project-Bank-Transfer
 
 Este Projeto tem como finalidade estruturar uma aplicação web fullstack, dockerizada, cujo objetivo seja possibilitar que usuários da NG consigam realizar transferências internas entre si
 
@@ -16,51 +16,37 @@ Este Projeto tem como finalidade estruturar uma aplicação web fullstack, docke
 
 # Instruções:
 
-Inicie clonando o repositorio para sua máquina local
+Primeiro clone o repositorio para sua máquina local
 
 ```
-git clone git@github.com:Thales-Daniel/ng-cash.git
+git@github.com:claro-bruno/ngcash.git
 ```
-
-entre na pasta do repositorio
+após isso entre na pasta do repositorio
 
 ```
 cd ng-cash
 ```
 
-Entre na pasta do <strong>backend</strong> e install as dependências
-
-```
-cd backend && yarn install
-```
-
-Logo em seguida execute o comando para o docker iniciar:
+Logo em seguida, entre na pasta do backend e execute o comando para o docker iniciar:
 
 ```
 docker-compose up -d
 ```
 
-É necessário rodar o camando abaixo para gerar ou atualizar o banco de dados
+
+Utilize o comando abaixo para atualizar o banco de dados com a migraçao atual do prisma.
 
 ```
-yarn prisma migrate dev
-```
-
-E
-
-```
+yarn install
+yarn prisma migrate dev 
 yarn prisma generate
-
 ```
 
-E para finalizar, entre na pasta <strong>frontend</strong> instale as dependencias e inicie o docker com o comando abaixo:
+E para finalizar, entre na pasta <strong>frontend</strong> e inicie o docker com o comando abaixo:
 
 ```
- yarn install
-
-  E logo em seguida
-
- docker-compose up --build
+docker-compose build -d dev
+docker-compose up -d dev
 ```
 
 # Tecnologias
