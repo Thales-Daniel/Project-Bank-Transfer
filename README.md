@@ -19,7 +19,7 @@ Este Projeto tem como finalidade estruturar uma aplicação web fullstack, docke
 Primeiro clone o repositorio para sua máquina local
 
 ```
-git@github.com:claro-bruno/ngcash.git
+git@github.com:Thales-Daniel/Project-Bank-Transfer.git
 ```
 após isso entre na pasta do repositorio
 
