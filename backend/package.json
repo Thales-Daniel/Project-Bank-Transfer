@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Thales-Daniel/ng-cash.git"
+    "url": "git+https://github.com/Thales-Daniel/Project-Bank-Transfer.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Thales-Daniel/ng-cash/issues"
+    "url": "https://github.com/Thales-Daniel/Project-Bank-Transfer/issues"
   },
-  "homepage": "https://github.com/Thales-Daniel/ng-cash#readme",
+  "homepage": "https://github.com/Thales-Daniel/Project-Bank-Transfer#readme",
   "dependencies": {
     "@prisma/client": "4.6.1",
     "@types/cors": "^2.8.12",
