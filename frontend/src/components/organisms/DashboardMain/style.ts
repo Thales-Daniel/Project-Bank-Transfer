@@ -10,6 +10,7 @@ export const Main = styled.main`
 
   @media (max-width: 600px) {
     gap: 0.625rem;
+    width: 90%;
   }
 `
 

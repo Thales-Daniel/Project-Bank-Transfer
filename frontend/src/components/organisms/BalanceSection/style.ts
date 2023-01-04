@@ -15,6 +15,7 @@ export const SectionBalance = styled.section`
 
   @media (max-width: 600px) {
     width: 100%;
+    height: 10rem;
     p {
       font-size: xx-large;
     }
