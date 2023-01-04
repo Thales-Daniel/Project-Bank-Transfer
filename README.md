@@ -97,14 +97,19 @@ O front-end do projeto foi desenvolvido em React.js com o gerenciador de estado 
 <br/><br/>
 
 - Login
-  ![login](https://user-images.githubusercontent.com/82240828/203141697-71a896de-5aa2-4356-85b1-3ce5593764c5.gif)
+  ![Login](https://user-images.githubusercontent.com/82240828/210466279-b899a709-dfd3-4145-8348-4f96d0b8b662.gif)
 - Dashboard
 
-  ![dashboard](https://user-images.githubusercontent.com/82240828/203141674-274b75db-c594-43fd-988a-b9ad979afd89.gif)
+  ![dashboard](https://user-images.githubusercontent.com/82240828/210466268-ba9cf420-ce37-4a08-ae5b-e30fb0cc03cf.gif)
 
 - Register
 
-  ![register](https://user-images.githubusercontent.com/82240828/203141691-c1c2bc66-203b-4b7f-813b-788d5ed1977c.gif)
+  ![register and logof](https://user-images.githubusercontent.com/82240828/210466283-f979b52b-1ae1-4a22-8d9f-3af55f6e8a46.gif)
+ 
+- Versão mobile
+  
+  ![Captura de tela de 2023-01-03 22-14-13](https://user-images.githubusercontent.com/82240828/210466766-2f5c7863-6643-4c76-94ff-a4cdc3eb76fe.png)
+
   <br/><br/>
   `Back-end`
 
