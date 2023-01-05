@@ -27,24 +27,27 @@ após isso entre na pasta do repositorio
 cd Project-Bank-Transfer
 ```
 
-Logo em seguida, entre na pasta do backend e execute o comando para o docker iniciar:
-
-```
-docker-compose up -d
-```
-
-Utilize o comando abaixo para atualizar o banco de dados com a migraçao atual do prisma.
+Logo em seguida, entre na pasta do backend e execute o comando para instalar as dependencias:
 
 ```
 yarn install
-yarn prisma migrate dev 
+```
+
+O proximo passo é iniciar o docker e rodar o comando abaixo para atualizar o banco de dados com a migraçao atual do prisma.
+
+```
+docker-compose up -d
+
+yarn prisma migrate dev
+
 yarn prisma generate
 ```
 
-E para finalizar, entre na pasta <strong>frontend</strong> e inicie o docker com o comando abaixo:
+E para finalizar, entre na pasta <strong>frontend</strong> instale as dependencias e inicie o docker com o comando abaixo:
 
 ```
-docker-compose build -d dev
+yarn install
+
 docker-compose up -d dev
 ```
 
