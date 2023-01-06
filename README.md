@@ -44,7 +44,6 @@ E para finalizar, inicie o projeto rodando o comando a baixo:
 
 ```
 yarn start
-
 ```
 
 # Tecnologias
