@@ -1,0 +1,29 @@
+{
+  "name": "node-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install:api": "cd ./backend && yarn install",
+    "install:web": "cd ./frontend && yarn install",
+    "install:all": "yarn install && concurrently \"yarn install:api\" \"yarn install:web\"",
+    "run:prisma": "cd ./backend && yarn prisma migrate dev && yarn prisma generate",
+    "start:web": "cd ./frontend && yarn dev",
+    "start:api": "cd ./backend && yarn dev",
+    "start": "concurrently \"yarn start:api\" \"yarn start:web\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thales-Daniel/Project-Bank-Transfer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thales-Daniel/Project-Bank-Transfer/issues"
+  },
+  "homepage": "https://github.com/Thales-Daniel/Project-Bank-Transfer#readme",
+  "dependencies": {
+    "concurrently": "^7.5.0"
+  }
+}

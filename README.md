@@ -1,6 +1,6 @@
 # Boas vindas ao repositório Project-Bank-Transfer
 
-Este Projeto tem como finalidade estruturar uma aplicação web fullstack, dockerizada, cujo objetivo seja possibilitar que usuários do banco consigam realizar transferências internas entre si
+Este Projeto tem como finalidade estruturar uma aplicação web fullstack, cujo objetivo seja possibilitar que usuários do banco consigam realizar transferências internas entre si
 
 <br/><br/>
 
@@ -21,34 +21,30 @@ Primeiro clone o repositorio para sua máquina local
 ```
 git@github.com:Thales-Daniel/Project-Bank-Transfer.git
 ```
+
 após isso entre na pasta do repositorio
 
 ```
 cd Project-Bank-Transfer
 ```
 
-Logo em seguida, entre na pasta do <strong>BACKEND</strong> e execute o comando para instalar as dependencias:
+Logo em seguida, execute o comando para instalar as dependencias:
 
 ```
-yarn install
+yarn install:all
 ```
 
-O proximo passo é iniciar o docker e rodar o comando abaixo para atualizar o banco de dados com a migraçao atual do prisma.
+O proximo passo é rodar o comando abaixo para atualizar o banco de dados com a migraçao atual do prisma.
 
 ```
-docker-compose up -d
-
-yarn prisma migrate dev
-
-yarn prisma generate
+yarn run prisma
 ```
 
-E para finalizar, entre na pasta <strong>FRONTEND</strong> instale as dependencias e inicie o docker com o comando abaixo:
+E para finalizar, inicie o projeto rodando o comando a baixo:
 
 ```
-yarn install
+yarn start
 
-docker-compose up -d dev
 ```
 
 # Tecnologias
@@ -108,9 +104,9 @@ O front-end do projeto foi desenvolvido em React.js com o gerenciador de estado 
 - Register
 
   ![register and logof](https://user-images.githubusercontent.com/82240828/210466283-f979b52b-1ae1-4a22-8d9f-3af55f6e8a46.gif)
- 
+
 - Versão mobile
-  
+
   ![Captura de tela de 2023-01-03 22-14-13](https://user-images.githubusercontent.com/82240828/210466766-2f5c7863-6643-4c76-94ff-a4cdc3eb76fe.png)
 
   <br/><br/>
