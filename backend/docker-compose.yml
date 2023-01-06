@@ -3,7 +3,7 @@ version: "3.9"
 services:
   database:
     image: postgres
-    container_name: database_ngcash
+    container_name: database_bank
     restart: always
     ports:
       - 5432:5432
@@ -17,7 +17,7 @@ services:
   app:
     build: .
     environment:
-      - DATABASE_URL=postgresql://postgres:postgres@database_ngcash:5432/bank
+      - DATABASE_URL=postgresql://postgres:postgres@database_bank:5432/bank
     container_name: dbapp
     restart: always
     ports:

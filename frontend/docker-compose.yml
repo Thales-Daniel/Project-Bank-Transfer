@@ -1,13 +1,12 @@
-version: "3.9"
+version: "3.8"
+
 services:
-  client:
-    stdin_open: true
+  dev:
     build:
-      context: .
+      context: ./
       dockerfile: Dockerfile
-    container_name: docker-app
+    volumes:
+      - ./:/app
+    command: yarn dev --host
     ports:
       - "3000:3000"
-    volumes:
-      - "home/app/node_modules"
-      - "./:/home/app"
